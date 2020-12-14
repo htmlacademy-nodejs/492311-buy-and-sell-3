@@ -65,7 +65,7 @@ const readContent = async (filePath) => {
     return content.split(`\n`);
   } catch (e) {
     console.error(e);
-    return []
+    return [];
   }
 };
 
@@ -83,8 +83,8 @@ module.exports = {
     const categories = await readContent(FILE_CATEGORIES_PATH);
     const sentences = await readContent(FILE_SENTENCES_PATH);
     const content = JSON.stringify(generateOffers(countOffer, titles, categories, sentences));
-    await fs.writeFile(FILE_NAME, content, (err) => {
-      return err ? console.error(chalk[messageColor.error](`Can't write data to file...`)) : console.info(chalk[messageColor.success](`Operation success. File created.`));
-    });
+    fs.writeFile(FILE_NAME, content)
+      .then(() => {console.info(chalk[messageColor.success](`Operation success. File created.`));})
+      .catch(() => { return console.error(chalk[messageColor.error](`Can't write data to file...`))});
   }
 };

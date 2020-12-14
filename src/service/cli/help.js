@@ -1,5 +1,5 @@
 'use strict';
-const chalk = require('chalk');
+const chalk = require(`chalk`);
 const {messageColor} = require(`../../utils`);
 
 const helpText = `Программа запускает http-сервер и формирует файл с данными для API.
@@ -11,12 +11,14 @@ const helpText = `Программа запускает http-сервер и ф�
     --version:            выводит номер версии
     --help:               печатает этот текст
     --generate <count>    формирует файл mocks.json
-  `
+  `;
 
 
 module.exports = {
   name: `--help`,
-  run() {console.log(chalk[messageColor.help](helpText));}
+  run() {
+    console.log(chalk[messageColor.help](helpText));
+  }
 };
 
 

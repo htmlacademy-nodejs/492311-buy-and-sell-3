@@ -15,10 +15,10 @@ const shuffle = (arr) => {
 };
 
 const messageColor = {
-  error: 'red',
-  success: 'green',
-  info: 'blue',
-  help: 'grey'
+  error: `red`,
+  success: `green`,
+  info: `blue`,
+  help: `grey`
 };
 
 module.exports = {
