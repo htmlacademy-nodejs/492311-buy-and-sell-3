@@ -1,9 +1,11 @@
 'use strict';
 
 const fs = require(`fs`).promises;
+const chalk = require(`chalk`);
 const {
   getRandomInt,
   shuffle,
+  messageColor
 } = require(`../../utils`);
 const {
   ExitCode
@@ -74,7 +76,7 @@ module.exports = {
     const [count] = args;
     const countOffer = Number.parseInt(count, 10) || DEFAULT_COUNT;
     if (countOffer > MAX_OFFERS_AMOUNT) {
-      console.log(`Не больше ${MAX_OFFERS_AMOUNT} объявлений`);
+      console.log(chalk[messageColor.error](`Не больше ${MAX_OFFERS_AMOUNT} объявлений`));
       process.exit(ExitCode.error);
     }
     const titles = await readContent(FILE_TITLES_PATH);
@@ -82,8 +84,7 @@ module.exports = {
     const sentences = await readContent(FILE_SENTENCES_PATH);
     const content = JSON.stringify(generateOffers(countOffer, titles, categories, sentences));
     await fs.writeFile(FILE_NAME, content, (err) => {
-      return err ? console.error(`Can't write data to file...`) : console.info(`Operation success. File created.`);
+      return err ? console.error(chalk[messageColor.error](`Can't write data to file...`)) : console.info(chalk[messageColor.success](`Operation success. File created.`));
     });
-
   }
 };
