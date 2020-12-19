@@ -5,7 +5,7 @@ const chalk = require(`chalk`);
 const {
   getRandomInt,
   shuffle,
-  messageColor
+  MessageColor
 } = require(`../../utils`);
 const {
   ExitCode
@@ -69,22 +69,52 @@ const readContent = async (filePath) => {
   }
 };
 
+const isMultiplyElementsInArray = (arr) => {
+  if (arr.length > 1) {
+    console.log(chalk[MessageColor.error](`Можно ввести только 1 аргумент`));
+    process.exit(ExitCode.error);
+  }
+};
+
+const isArgumentNumeric = (args) => {
+  if (!args[0].match(/^-?[0-9]\d*(\.\d+)?$/)) {
+    console.log(chalk[MessageColor.error](`Аргумент должен быть числом`));
+    process.exit(ExitCode.error);
+  }
+};
+
+const isNegativeNumber = (args) => {
+  if (args[0] < 0) {
+    console.log(chalk[MessageColor.error](`Аргумент должен быть больше нуля`));
+    process.exit(ExitCode.error);
+  }
+};
+
+const isAmountExceed = (amount) => {
+  if (amount > MAX_OFFERS_AMOUNT) {
+    console.log(chalk[MessageColor.error](`Не больше ${MAX_OFFERS_AMOUNT} объявлений`));
+    process.exit(ExitCode.error);
+  }
+};
+
 
 module.exports = {
   name: `--generate`,
   async run(args) {
+    if (args.length) {
+      isMultiplyElementsInArray(args);
+      isArgumentNumeric(args);
+      isNegativeNumber(args);
+    }
     const [count] = args;
     const countOffer = Number.parseInt(count, 10) || DEFAULT_COUNT;
-    if (countOffer > MAX_OFFERS_AMOUNT) {
-      console.log(chalk[messageColor.error](`Не больше ${MAX_OFFERS_AMOUNT} объявлений`));
-      process.exit(ExitCode.error);
-    }
+    isAmountExceed(count);
     const titles = await readContent(FILE_TITLES_PATH);
     const categories = await readContent(FILE_CATEGORIES_PATH);
     const sentences = await readContent(FILE_SENTENCES_PATH);
     const content = JSON.stringify(generateOffers(countOffer, titles, categories, sentences));
     fs.writeFile(FILE_NAME, content)
-      .then(() => {console.info(chalk[messageColor.success](`Operation success. File created.`));})
-      .catch(() => { return console.error(chalk[messageColor.error](`Can't write data to file...`))});
+      .then(() => {console.info(chalk[MessageColor.success](`Operation success. File created.`));})
+      .catch(() => { return console.error(chalk[MessageColor.error](`Can't write data to file...`))});
   }
 };
