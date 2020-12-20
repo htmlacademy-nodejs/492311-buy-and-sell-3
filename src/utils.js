@@ -14,7 +14,15 @@ const shuffle = (arr) => {
   return arr;
 };
 
-const messageColor = {
+const HttpCodes = {
+  OK: 200,
+  NOT_FOUND: 404,
+  INTERNAL_SERVER_ERROR: 500,
+  FORBIDDEN: 403,
+  UNAUTHORIZED: 401,
+};
+
+const MessageColor = {
   error: `red`,
   success: `green`,
   info: `blue`,
@@ -22,5 +30,8 @@ const messageColor = {
 };
 
 module.exports = {
-  getRandomInt, shuffle, messageColor
+  getRandomInt,
+  shuffle,
+  MessageColor,
+  HttpCodes
 };
