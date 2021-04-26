@@ -1,5 +1,7 @@
-mixin input-text(attributes, type, name, id,   value, classname)
-  input.js-field(type=attributes.type class=attributes.classname id=attributes.id name=attributes.name value=attributes.value placeholder=attributes.placeholder required=isRequired)
+mixin input-text(attributes)
+  p=attributes.toString()
+  p #{attributes.type}
+  input.js-field(type='#{attributes.type}' class=attributes.classname id=attributes.id name=attributes.name value=attributes.value placeholder=attributes.placeholder required=isRequired)
   label(for=id)=label
   if isRequired
     span Обязательное поле
