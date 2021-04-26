@@ -7,7 +7,7 @@ offersRouter.get(`/add`, (req, res) => {
 
 offersRouter.get(`/:id`, (req, res) => {
   const id = req.params['id'];
-  res.send(`/${id}`)
+  res.render(`ticket/ticket`)
 });
 
 offersRouter.get(`/category/:id`, (req, res) => {
@@ -17,7 +17,7 @@ offersRouter.get(`/category/:id`, (req, res) => {
 
 offersRouter.get(`/edit/:id`, (req, res) => {
   const id = req.params['id'];
-  res.send(`/edit/${id}`)
+  res.render(`ticket/ticket-edit`)
 });
 
 

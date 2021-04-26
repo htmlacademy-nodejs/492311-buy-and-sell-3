@@ -1,0 +1,4 @@
+mixin input-select(options, name, id, className, datalabel, isMultple)
+  select(name=name id=id class=className data-label=datalabel multiple='')
+    each option in options
+      option(value=option.value selected=option.isSelected)=option.text

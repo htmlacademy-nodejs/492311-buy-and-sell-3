@@ -13,6 +13,10 @@ const DEFAULT_PORT = 8080;
 
 const app = express();
 
+app.set('view engine', 'pug');
+app.set(`views`, `${__dirname}/templates`);
+
+
 app.use(`/login`, loginRoutes);
 app.use(`/register`, registerRoutes);
 app.use(`/search`, searchRoutes);

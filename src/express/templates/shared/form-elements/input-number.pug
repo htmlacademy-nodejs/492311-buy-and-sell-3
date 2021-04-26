@@ -1,0 +1,5 @@
+mixin input-number(name, id, value, className, label, isRequired, min, max)
+  input(type='number' class=className id=id name=name value=value required=isRequired)
+  label(for=id)=label
+  if isRequired
+    span Обязательное поле

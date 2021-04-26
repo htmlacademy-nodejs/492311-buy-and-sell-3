@@ -1,0 +1,45 @@
+include ../shared/layout
+  include ../shared/header
+  main.page-content
+    section.ticket-form
+      .ticket-form__wrapper
+        h1.ticket-form__title Редактировать публикацию
+        .ticket-form__tile
+          form.ticket-form__form.form(action='#' method='post' enctype='multipart/form-data' autocomplete='off')
+            .ticket-form__avatar-container.js-preview-container.uploaded
+              .ticket-form__avatar.js-preview
+                img(src='../src/express/public/img/item02.jpg' srcset='../src/express/public/img/item02@2x.jpg 2x' alt='')
+              .ticket-form__field-avatar
+                include ../shared/form-elements/input-file
+                +input-file('avatar', 'ticket-form__text-upload', 'ticket-form__text-another')
+            .ticket-form__content
+              .ticket-form__row
+                .form__field
+                  include ../shared/form-elements/input-text
+                  +input-text('text', 'ticket-name', 'ticket-name', 'Мое старое кресло', 'js-field', 'Название', false)
+              .ticket-form__row
+                .form__field
+                  include ../shared/form-elements/input-textarea
+                  +input-textarea('comment', 'comment-field', 30, 10, 400, 50,'js-field',
+                  'Продам свое старое кресло, чтобы сидеть и читать книги зимними вечерами. Ножки мягкие, мой пол не царапают.', 'Описание', true)
+              .ticket-form__row
+                include ../shared/form-elements/select
+                +input-select([
+                  {value: 1, isSelected: false, text: 'Дом'},
+                  {value: 2, isSelected: false, text: 'Спорт и отдых'},
+                  {value: 3, isSelected: false, text: 'Авто'},
+                  {value: 4, isSelected: false, text: 'Электроника'}],
+                  'category', 'category-field', 'form__select js-multiple-select',
+                  'Выбрать категорию публикации', false)
+              .ticket-form__row
+                .form__field.form__field--price
+                  include ../shared/form-elements/input-number
+                  +input-number('price', 'price-field', '4000', 'js-field js-price', '', 'Цена', false, 1)
+                .form__switch.switch
+                  include ../shared/form-elements/input-radio
+                  +input-radio([
+                    {id: 'buy-field', name: 'action', value: 'buy', label: 'Куплю', isChecked: true},
+                    {id: 'sell-field', name: 'action', value: 'sell', label: 'Продам'}],
+                  'switch__item', 'switch__button')
+            button.form__button.btn.btn--medium.js-button(type='submit') Сохранить
+  include ../shared/footer

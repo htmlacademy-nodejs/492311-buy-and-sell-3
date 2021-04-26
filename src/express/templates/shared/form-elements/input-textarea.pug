@@ -1,0 +1,5 @@
+mixin input-textarea(name, id, cols, rows, maxlength, minlength, className, value, label, isRequired)
+  textarea(class=className, name=name id=id cols=cols rows=rows maxlength=maxlength minlength=minlength)=value
+  label(for=name)=label
+  if isRequired
+    span Обязательное поле

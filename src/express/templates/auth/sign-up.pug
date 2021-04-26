@@ -1,0 +1,27 @@
+// mixins
+include ../shared/form-elements/input-file
+include ../shared/form-elements/input-text
+
+
+include ../shared/layout
+  include ../shared/header
+  main.page-content
+    section.sign-up
+      form.sign-up__form.form(action='#' method='post' enctype='multipart/form-data' autocomplete='off')
+        .sign-up__title
+          h2 Регистрация
+          a.sign-up__link(href='login.html') Вход
+        .sign-up__avatar-container.js-preview-container
+          .sign-up__avatar.js-preview
+          .sign-up__field-avatar
+            +input-file('avatar', 'sign-up__text-upload', 'sign-up__text-another')
+        .form__field.sign-up__field
+          +input-text('text', 'user-name', 'user-name', null, null, 'Имя и фамилия', true)
+        .form__field.sign-up__field
+          +input-text('email', 'user-email', 'user-email', null, null, 'Эл. почта', true)
+        .form__field.sign-up__field
+          +input-text('password', 'user-password', 'user-password', null, null, 'Пароль', true)
+        .form__field.sign-up__field
+          +input-text('password', 'user-password-again', 'user-password-again', null, null, 'Пароль еще раз', true)
+        button.sign-up__button.btn.btn--medium.js-button(type='submit' disabled='') Создать аккаунт
+  include ../shared/footer
