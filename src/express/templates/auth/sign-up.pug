@@ -1,10 +1,11 @@
-// mixins
 include ../shared/form-elements/input-file
 include ../shared/form-elements/input-text
+include ../shared/header
+
 
 
 include ../shared/layout
-  include ../shared/header
+  +header()
   main.page-content
     section.sign-up
       form.sign-up__form.form(action='#' method='post' enctype='multipart/form-data' autocomplete='off')
@@ -16,6 +17,7 @@ include ../shared/layout
           .sign-up__field-avatar
             +input-file('avatar', 'sign-up__text-upload', 'sign-up__text-another')
         .form__field.sign-up__field
+          +input-text({type: 'text', id: 'user-name', name: 'user-name', label: 'Имя и фамилия', required: true})
           +input-text('text', 'user-name', 'user-name', null, null, 'Имя и фамилия', true)
         .form__field.sign-up__field
           +input-text('email', 'user-email', 'user-email', null, null, 'Эл. почта', true)

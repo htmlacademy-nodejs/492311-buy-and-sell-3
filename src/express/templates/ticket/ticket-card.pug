@@ -1,0 +1,18 @@
+mixin ticket-card(title, categories, label, price, description, imagesrc, color)
+  .ticket-card(class=`ticket-card--color${color}`)
+    if(imageSrc)
+      .ticket-card__img
+        img(src=imagesrc['main'] srcset=imagesrc['retina'] alt='Изображение товара')
+    .ticket-card__info
+      span.ticket-card__label=label
+      .ticket-card__categories
+         each category in categories
+           a(href='#')=category.value
+      .ticket-card__header
+        h3.ticket-card__title
+          a(href='#')=title
+        p.ticket-card__price
+          span.js-sum=price
+            | &#x20BD;
+      .ticket-card__desc
+        p=description
