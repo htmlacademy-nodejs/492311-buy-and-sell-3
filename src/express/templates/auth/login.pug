@@ -1,0 +1,18 @@
+include ../shared/form-elements/input-file
+include ../shared/form-elements/input-text
+include ../shared/header
+
+include ../shared/layout
+  +header()
+  main.page-content
+    section.login
+      form.login__form.form(action='#' method='post' enctype='multipart/form-data')
+        .login__title
+          a.login__link(href='sign-up.html') Регистрация
+          h2 Вход
+        .form__field.login__field
+          +input-text({type: 'email', id: 'user-email', name: 'user-email', label: 'Эл. почта', required: true})
+        .form__field.login__field
+          +input-text({type: 'password', id: 'user-password', name: 'password', label: 'Пароль', required: true})
+        button.login__button.btn.btn--medium.js-button(type='submit' disabled='') Войти
+  include ../shared/footer

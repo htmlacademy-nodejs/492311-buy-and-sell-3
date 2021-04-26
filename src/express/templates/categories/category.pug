@@ -1,0 +1,41 @@
+include ../shared/header
+include ../shared/categories/category-icon
+include ../ticket/ticket-card
+include ../shared/pagination
+
+include ../shared/layout
+  +header()
+  main.page-content
+    section.categories-list
+      h1.visually-hidden Сервис объявлений "Куплю - продам"
+      ul.categories-list__wrapper
+        ul.categories-list__wrapper
+          each category in [{image: {main: '../src/express/public/img/cat.jpg', retina: '../src/express/public/img/cat@2x.jpg 2x', alt: 'Иконка категории'}, label: 'Дом', qty: 81}, {image: {main: '../src/express/public/img/cat.jpg', retina: '../src/express/public/img/cat@2x.jpg 2x', alt: 'Иконка категории'}, label: 'Дом', qty: 81},{image: {main: '../src/express/public/img/cat.jpg', retina: '../src/express/public/img/cat@2x.jpg 2x', alt: 'Иконка категории'}, label: 'Дом', qty: 81},{image: {main: '../src/express/public/img/cat.jpg', retina: '../src/express/public/img/cat@2x.jpg 2x', alt: 'Иконка категории',}, label: 'Дом', qty: 81}]
+            li.categories-list__item
+              +category-icon({
+                image: category.image,
+                label: category.label,
+                alt: category.alt,
+                qty: category.qty
+              })
+    section.tickets-list
+      h2.visually-hidden Предложения из категории электроника
+      .tickets-list__wrapper
+        .tickets-list__header
+          p.tickets-list__title
+            | Электроника
+            b.js-qty 62
+        ul
+          each item in [{title: 'Монстера', categories: ['Дом'], label: 'Куплю', price: 1000, description: 'Куплю монстеру зеленую в хорошем зеленом состоянии, буду поливать...', image: {main: '../src/express/public/img/item01.jpg', retina: '../src/express/public/img/item01@2x.jpg 2x'}, color: '01'}, {title: 'Мое старое кресло', categories: ['Дом'], label: 'Продам', price: 4000, description: 'Продам свое старое кресло, чтобы сидеть и читать книги зимними...', imageSrc: {main: '../src/express/public/img/item02.jpg', retina: '../src/express/public/img/item02@2x.jpg 2x'}, color: '02'}]
+            li.tickets-list__item
+              +ticket-card({
+                title: item.title,
+                categories: item.categories,
+                label: item.label,
+                price: item.price,
+                image: item.image,
+                color: item.color
+              })
+          .tickets-list__pagination
+          +pagination()
+  include ../shared/footer

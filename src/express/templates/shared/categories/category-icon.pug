@@ -1,0 +1,8 @@
+mixin category-icon(props)
+  a.category-tile(href='#' class=props.isSmall?'category-tile--small':'category-tile--default')
+    span.category-tile__image
+      img(src=props.image.main srcset=props.image.retina alt=props.image.alt)
+    span.category-tile__label
+      | #{props.label}
+      if !props.isSmall
+        span.category-tile__qty.js-qty=props.qty
