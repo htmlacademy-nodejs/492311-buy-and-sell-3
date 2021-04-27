@@ -1,0 +1,46 @@
+include ../shared/header
+include ../shared/form-elements/input-text
+include ../shared/form-elements/input-textarea
+include ../shared/form-elements/input-radio
+include ../shared/form-elements/input-select
+
+include ../shared/layout
+  +header(true)
+  main.page-content
+    section.ticket-form
+      .ticket-form__wrapper
+        h1.ticket-form__title Новая публикация
+        .ticket-form__tile
+          form.ticket-form__form.form(action='#' method='post' enctype='multipart/form-data' autocomplete='off')
+            .ticket-form__avatar-container.js-preview-container
+              .ticket-form__avatar.js-preview
+              .ticket-form__field-avatar
+                +input-file({name: 'avatar', id: 'avatar', classname: 'classname', otherclassname: 'ticket-form__text-another'})
+            .ticket-form__content
+              .ticket-form__row
+                .form__field
+                  +input-text({type: 'text', name: 'ticket-name', required: true, label: 'Название', id: 'ticket-name'})
+              .ticket-form__row
+                .form__field
+                  +input-textarea({name: 'comment', id: 'comment-field', cols: 30, rows: 10, maxlength: 400, minlength:50, label: 'Описание', required: true})
+              .ticket-form__row
+                +input-select([
+                    {value: 1, text: 'Дом'},
+                    {value: 2, text: 'Спорт и отдых'},
+                    {value: 3, text: 'Авто'},
+                    {value: 4, text: 'Электроника'},
+                  ], {id: 'category-field', name: 'category', datalabel: 'Выбрать категорию публикации'}
+                })
+              .ticket-form__row
+                .form__field.form__field--price
+                  +input-text({type: 'number', name: 'price', id: 'price-field', min: 1, required: true, label: 'Цена', classname: 'js-price'})
+                .form__switch.switch
+                  +input-radio([
+                    {id: 'buy-field', name: 'action', value: 'buy', label: 'Куплю', isChecked: true},
+                    {id: 'sell-field', name: 'action', value: 'sell', label: 'Продам'}],
+                    {wrapperclass: 'switch__item', labelclass: 'switch__button'})
+            button.form__button.btn.btn--medium.js-button(type='submit' disabled='') &Ocy;&pcy;&ucy;&bcy;&lcy;&icy;&kcy;&ocy;&vcy;&acy;&tcy;&softcy;
+
+
+  include ../shared/footer
+

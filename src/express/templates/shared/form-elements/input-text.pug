@@ -1,7 +1,6 @@
-mixin input-text(attributes)
-  p=attributes.toString()
-  p #{attributes.type}
-  input.js-field(type='#{attributes.type}' class=attributes.classname id=attributes.id name=attributes.name value=attributes.value placeholder=attributes.placeholder required=isRequired)
-  label(for=id)=label
-  if isRequired
+mixin input-text(args)
+  input.js-field(type=args.type class=args.classname id=args.id name=args.name value=args.value placeholder=args.placeholder required=args.required aria-label=args.arialabel, min=args.min, max=args.max)
+  if args.label
+    label(for=id)=args.label
+  if args.required
     span Обязательное поле

@@ -1,3 +1,9 @@
+include ../shared/form-elements/input-file
+include ../shared/form-elements/input-text
+include ../shared/form-elements/input-textarea
+include ../shared/form-elements/input-select
+include ../shared/form-elements/input-radio
+
 include ../shared/layout
   include ../shared/header
   main.page-content
@@ -10,36 +16,28 @@ include ../shared/layout
               .ticket-form__avatar.js-preview
                 img(src='../src/express/public/img/item02.jpg' srcset='../src/express/public/img/item02@2x.jpg 2x' alt='')
               .ticket-form__field-avatar
-                include ../shared/form-elements/input-file
-                +input-file('avatar', 'ticket-form__text-upload', 'ticket-form__text-another')
+                +input-file({name: 'avatar', id: 'avatar', classname: 'ticket-form__text-upload', otherclassname: 'ticket-form__text-another'})
             .ticket-form__content
               .ticket-form__row
                 .form__field
-                  include ../shared/form-elements/input-text
-                  +input-text('text', 'ticket-name', 'ticket-name', 'Мое старое кресло', 'js-field', 'Название', false)
+                  +input-text({type: 'text', name: 'ticket-name', id: 'ticket-name', value: 'Мое старое кресло', label: 'Название'})
               .ticket-form__row
                 .form__field
-                  include ../shared/form-elements/input-textarea
-                  +input-textarea('comment', 'comment-field', 30, 10, 400, 50,'js-field',
-                  'Продам свое старое кресло, чтобы сидеть и читать книги зимними вечерами. Ножки мягкие, мой пол не царапают.', 'Описание', true)
+                  +input-textarea({name: 'comment', id: 'comment-field', cols: 30, rows: 10, maxlength: 400, minlength: 50, value: 'Продам свое старое кресло, чтобы сидеть и читать книги зимними вечерами. Ножки мягкие, мой пол не царапают.', placeholder: 'Описание', required: true})
               .ticket-form__row
-                include ../shared/form-elements/select
                 +input-select([
-                  {value: 1, isSelected: false, text: 'Дом'},
-                  {value: 2, isSelected: false, text: 'Спорт и отдых'},
-                  {value: 3, isSelected: false, text: 'Авто'},
-                  {value: 4, isSelected: false, text: 'Электроника'}],
-                  'category', 'category-field', 'form__select js-multiple-select',
-                  'Выбрать категорию публикации', false)
+                  {value: 1, text: 'Дом'},
+                  {value: 2, text: 'Спорт и отдых'},
+                  {value: 3, text: 'Авто'},
+                  {value: 4, text: 'Электроника'}],
+                  {name: 'category', id: 'category-field', classname: 'form__select js-multiple-select', datalabel: 'Выбрать категорию публикации'})
               .ticket-form__row
                 .form__field.form__field--price
-                  include ../shared/form-elements/input-number
-                  +input-number('price', 'price-field', '4000', 'js-field js-price', '', 'Цена', false, 1)
+                  +input-text({type: 'number', name: 'price', id: 'price-field', value: 4000, classname: 'js-price', label: 'Цена', min: 1})
                 .form__switch.switch
-                  include ../shared/form-elements/input-radio
                   +input-radio([
                     {id: 'buy-field', name: 'action', value: 'buy', label: 'Куплю', isChecked: true},
                     {id: 'sell-field', name: 'action', value: 'sell', label: 'Продам'}],
-                  'switch__item', 'switch__button')
+                    {wrapperclass: 'switch__item', labelclass: 'switch__button'})
             button.form__button.btn.btn--medium.js-button(type='submit') Сохранить
   include ../shared/footer

@@ -13,8 +13,7 @@ mixin header(isLoggedIn)
             li.header__item
               a(href='comments.html') Комментарии
       form.search(method='get' action='#' autocomplete='off')
-        +input-text('search', 'search')
-        input(type='search' name='search' placeholder='Поиск' aria-label='Поиск')
+        +input-text({type: 'search', name:'search', placeholder: 'Поиск', arialabel: 'Поиск'})
         .search__icon
         .search__close-btn
       if isLoggedIn

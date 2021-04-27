@@ -1,5 +1,5 @@
-mixin input-radio(options, wrapperClass, labelClass)
+mixin input-radio(options, args)
   each option in options
-    div(class=wrapperClass)
+    div(class=args.wrapperclass)
       input.visually-hidden(type='radio' id=option.id name=option.name value=option.value checked=option.isChecked)
-      label(class=labelClass for=option.id)=option.label
+      label(class=args.labelclass, for=option.id)=option.label

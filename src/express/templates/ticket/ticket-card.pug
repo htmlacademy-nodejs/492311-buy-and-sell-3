@@ -1,8 +1,8 @@
 mixin ticket-card(title, categories, label, price, description, imagesrc, color)
   .ticket-card(class=`ticket-card--color${color}`)
-    if(imageSrc)
+    if(imagesrc)
       .ticket-card__img
-        img(src=imagesrc['main'] srcset=imagesrc['retina'] alt='Изображение товара')
+        img(src=imagesrc.main srcset=imagesrc.retina alt='Изображение товара')
     .ticket-card__info
       span.ticket-card__label=label
       .ticket-card__categories

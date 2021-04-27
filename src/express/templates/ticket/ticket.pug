@@ -1,3 +1,5 @@
+include ../comments/comments
+
 include ../shared/layout
   include ../shared/header
   main.page-content
@@ -6,8 +8,7 @@ include ../shared/layout
         h1.visually-hidden Карточка объявления
         .ticket__content
           .ticket__img
-            if isImage
-              img(src='../src/express/public/img/ticket.jpg' srcset='../src/express/public/img/ticket@2x.jpg 2x' alt='Изображение товара')
+            img(src='../src/express/public/img/ticket.jpg' srcset='../src/express/public/img/ticket@2x.jpg 2x' alt='Изображение товара')
           .ticket__info
             h2.ticket__title Моё старое кресло
             .ticket__header
@@ -38,6 +39,5 @@ include ../shared/layout
                   span.category-tile__image
                     img(src='../src/express/public/img/cat04.jpg' srcset='../src/express/public/img/cat04@2x.jpg 2x' alt='Иконка категории')
                   span.category-tile__label Cпорт и отдых
-          include ../comments/comments
           +comments()
   include ../shared/footer

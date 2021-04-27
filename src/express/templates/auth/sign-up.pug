@@ -13,15 +13,14 @@ include ../shared/layout
         .sign-up__avatar-container.js-preview-container
           .sign-up__avatar.js-preview
           .sign-up__field-avatar
-            +input-file('avatar', 'sign-up__text-upload', 'sign-up__text-another')
+            +input-file({name: 'avatar', id: 'avatar', classname: 'sign-up__text-upload', otherclassname: 'sign-up__text-another'})
         .form__field.sign-up__field
-          +input-text({type: 'text', id: 'user-name', name: 'user-name', label: 'Имя и фамилия', required: true, placeholder: '112213'})
-          +input-text('text', 'user-name', 'user-name', null, null, 'Имя и фамилия', true)
+          +input-text({type: 'text', id: 'user-name', name: 'user-name', label: 'Имя и фамилия', required: true})
         .form__field.sign-up__field
-          +input-text('email', 'user-email', 'user-email', null, null, 'Эл. почта', true)
+          +input-text({type: 'email', id: 'user-email', name: 'user-email', label: 'Имя и фамилия', required: true})
         .form__field.sign-up__field
-          +input-text('password', 'user-password', 'user-password', null, null, 'Пароль', true)
+          +input-text({type: 'password', id: 'user-password', name: 'user-password', label: 'Пароль', required: true})
         .form__field.sign-up__field
-          +input-text('password', 'user-password-again', 'user-password-again', null, null, 'Пароль еще раз', true)
+          +input-text({type: 'password', id: 'user-password-again', name: 'user-password-again', label: 'Пароль еще раз', required: true})
         button.sign-up__button.btn.btn--medium.js-button(type='submit' disabled='') Создать аккаунт
   include ../shared/footer
