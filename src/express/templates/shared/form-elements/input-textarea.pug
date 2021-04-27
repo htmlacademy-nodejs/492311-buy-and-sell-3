@@ -1,5 +1,5 @@
-mixin input-textarea(args)
-  textarea.js-field(class=args.classname, name=args.name id=args.id cols=args.cols rows=args.rows maxlength=args.maxlength minlength=args.minlength required=args.required)=args.value
-  label(for=args.name)=args.label
-  if args.required
+mixin input-textarea(props)
+  textarea.js-field(class=props.classname, name=props.name id=props.id cols=props.cols rows=props.rows maxlength=props.maxlength minlength=props.minlength required=props.required)=props.value
+  label(for=props.name)=props.label
+  if props.required
     span Обязательное поле

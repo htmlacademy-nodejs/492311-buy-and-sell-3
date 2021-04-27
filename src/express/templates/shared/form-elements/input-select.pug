@@ -1,4 +1,4 @@
-mixin input-select(options, args)
-  select(name=args.name id=args.id class=args.classname data-label=args.datalabel multiple=args.multiple)
+mixin input-select(options, props)
+  select(name=props.name id=props.id class=props.classname data-label=props.datalabel multiple=props.multiple)
     each option in options
       option(value=option.value selected=option.isSelected)=option.text

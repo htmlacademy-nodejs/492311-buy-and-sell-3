@@ -3,8 +3,12 @@
 const {Router} = require(`express`);
 const offersRouter = new Router();
 
+offersRouter.get(`/`, (req, res) => {
+  res.render(`ticket/my-tickets`);
+});
+
 offersRouter.get(`/add`, (req, res) => {
-  res.send(`/offers/add`);
+  res.render(`ticket/new-ticket`);
 });
 
 offersRouter.get(`/:id`, (req, res) => {

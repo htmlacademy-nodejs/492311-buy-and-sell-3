@@ -1,18 +1,18 @@
-mixin ticket-card(title, categories, label, price, description, imagesrc, color)
-  .ticket-card(class=`ticket-card--color${color}`)
-    if(imagesrc)
+mixin ticket-card(props)
+  .ticket-card(class=`ticket-card--color${props.color}`)
+    if(props.imagesrc)
       .ticket-card__img
-        img(src=imagesrc.main srcset=imagesrc.retina alt='Изображение товара')
+        img(src=props.imagesrc.main srcset=props.imagesrc.retina alt='Изображение товара')
     .ticket-card__info
-      span.ticket-card__label=label
+      span.ticket-card__label=props.label
       .ticket-card__categories
-         each category in categories
+         each category in props.categories
            a(href='#')=category.value
       .ticket-card__header
         h3.ticket-card__title
-          a(href='#')=title
+          a(href='#')=props.title
         p.ticket-card__price
-          span.js-sum=price
+          span.js-sum=props.price
             | &#x20BD;
       .ticket-card__desc
-        p=description
+        p=props.description
