@@ -36,9 +36,9 @@ const onClientConnect = async (req, res) => {
         const message = mocks.map((i) => {
           return `<li>${i.title}</li>`;
         }).join(``);
-        sendResponse(res, HttpCodes.OK, {'Content-type': `text/html; charset=UTF-8`}, `<ul>${message}</ul>`)
+        sendResponse(res, HttpCodes.OK, {'Content-type': `text/html; charset=UTF-8`}, `<ul>${message}</ul>`);
       } catch (e) {
-        sendResponse(res, HttpCodes.NOT_FOUND, {'Content-Type': `text/plain; charset=UTF-8`}, notFoundMessageText)
+        sendResponse(res, HttpCodes.NOT_FOUND, {'Content-Type': `text/plain; charset=UTF-8`}, notFoundMessageText);
       }
       break;
     default:

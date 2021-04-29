@@ -1,42 +1,16 @@
-include ../shared/form-elements/input-textarea
+include ../shared/header
 
-mixin comments(comments)
-  div.ticket__comments
-    .ticket__warning
-      p
-        | Отправка комментариев доступна
-        br
-        | только для зарегистрированных пользователей.
-      a.btn.btn--big(href='sign-up.html') Вход и регистрация
-    h2.ticket__subtitle Коментарии
-    .ticket__comment-form
-      form.form.comment-form(action='#' method='post')
-        .comment-form__header
-          a.comment-form__avatar.avatar(href='#')
-            img(src='../src/express/public/img/avatar.jpg' srcset='../src/express/public/img/avatar@2x.jpg 2x' alt='Аватар пользователя')
-          p.comment-form__author Вам слово
-          .comment-form__field
-            .form__field
-              +input-textarea({name: 'comment', id: 'comment-field', cols: 30, rows: 10, maxlength: 400, minlength: 50, value:'Нормальное вообще кресло! А как насч', placeholder: 'Текст комментария', required: true})
-          button.comment-form__button.btn.btn--white.js-button(type='submit' disabled='') Отправить
+include ../shared/layout
+  +header()
+  main.page-content
+    .comments__block
+      .comments__header
+        a.announce-card(href='#')
+          h2.announce-card__title Ленд Ровер
+          span.announce-card__info
+            span.announce-card__price ₽ 900 000
+            span.announce-card__type ПРОДАМ
     .ticket__comments-list
-      ul.comments-list
-        li
-          .comment-card
-            .comment-card__header
-              a.comment-card__avatar.avatar(href='#')
-                img(src='../src/express/public/img/avatar02.jpg' srcset='../src/express/public/img/avatar02@2x.jpg 2x' alt='Аватар пользователя')
-              p.comment-card__author Георгий Шпиц
-              .comment-card__content
-                p Что это за рухлядь? Стыдно такое даже фотографировать, не то, что&nbsp;продавать.
-
-        li
-          .comment-card
-            .comment-card__header
-              a.comment-card__avatar.avatar(href='#')
-                img(src='../src/express/public/img/avatar03.jpg' srcset='../src/express/public/img/avatar03@2x.jpg 2x' alt='Аватар пользователя')
-              p.comment-card__author Александр Бурый
-            .comment-card__content
-              p А можете доставить мне домой? Готов доплатить 300 сверху. Живу в центре прямо рядом с Моховой улицей. Готов купить прямо сейчас. Мой телефон 9032594748
-      .ticket__message
-        p У этой публикации еще нет ни одного комментария.
+      ul.comment-list
+        each comment in [{image: {main: '../src/express/public/img/avatar02.jpg', retina: '../src/express/public/img/avatar02@2x.jpg 2x', alt: 'Аватар пользователя'}, author: 'Александр Бурый', content: 'А что с прогоном автомобиля? Также вижу на фото зимнюю резину. А летняя идет ли впридачу?'}, {image: {main: '../src/express/public/img/avatar02.jpg', retina: '../src/express/public/img/avatar02@2x.jpg 2x', alt: 'Аватар пользователя'}, author: 'Александр Бурый', content: 'А что с прогоном автомобиля? Также вижу на фото зимнюю резину. А летняя идет ли впридачу?'}]
+          +comment-card({image: comment.image, author: comment.author, content: comment.content})

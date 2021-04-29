@@ -12,17 +12,14 @@ offersRouter.get(`/add`, (req, res) => {
 });
 
 offersRouter.get(`/:id`, (req, res) => {
-  const id = req.params[`id`];
   res.render(`ticket/ticket`);
 });
 
 offersRouter.get(`/category/:id`, (req, res) => {
-  const id = req.params[`id`];
-  res.send(`/category/${id}`);
+  res.render(`categories/category`);
 });
 
 offersRouter.get(`/edit/:id`, (req, res) => {
-  const id = req.params[`id`];
   res.render(`ticket/ticket-edit`);
 });
 

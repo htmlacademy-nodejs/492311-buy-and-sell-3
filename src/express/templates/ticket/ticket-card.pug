@@ -1,8 +1,8 @@
 mixin ticket-card(props)
   .ticket-card(class=`ticket-card--color${props.color}`)
-    if(props.imagesrc)
+    if(props.image)
       .ticket-card__img
-        img(src=props.imagesrc.main srcset=props.imagesrc.retina alt='Изображение товара')
+        img(src=props.image.main srcset=props.image.retina alt='Изображение товара')
     .ticket-card__info
       span.ticket-card__label=props.label
       .ticket-card__categories

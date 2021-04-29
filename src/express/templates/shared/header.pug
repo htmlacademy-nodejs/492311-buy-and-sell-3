@@ -2,7 +2,7 @@ include ../shared/form-elements/input-text
 
 mixin header(isLoggedIn)
   header.header(class=isLoggedIn ? 'header--logged':'')
-    .header__wrapper="header"
+    .header__wrapper
       a.header__logo.logo(href='main.html')
         img(src='../src/express/public/img/logo.svg' width='179' height='34' alt='Логотип Куплю Продам')
       if isLoggedIn

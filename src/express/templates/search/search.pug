@@ -11,9 +11,9 @@ include ../shared/layout
           p.search-results__label Найдено
             span.js-results 2 публикации
             ul.search-results__list
-              each item in [{title: 'Ленд Ровер', categories: ['Авто'], label: 'Продам', price: 900000, description: 'Куплю монстеру зеленую в хорошем зеленом состоянии, буду поливать...', imageSrc: {main: '../src/express/public/img/item05.jpg', retina: '../src/express/public/img/item05@2x.jpg 2x'}, color: '05'}, {title: 'Хонда', categories: ['Авто'], label: 'Продам', price: 100000, description: 'Куплю монстеру зеленую в хорошем зеленом состоянии, буду поливать...', imageSrc: {main: '../src/express/public/img/item16.jpg', retina: '../src/express/public/img/item16@2x.jpg 2x'}, color: '16'}]
+              each item in [{title: 'Ленд Ровер', categories: ['Авто'], label: 'Продам', price: 900000, description: 'Куплю монстеру зеленую в хорошем зеленом состоянии, буду поливать...', image: {main: '../src/express/public/img/item05.jpg', retina: '../src/express/public/img/item05@2x.jpg 2x'}, color: '05'}, {title: 'Хонда', categories: ['Авто'], label: 'Продам', price: 100000, description: 'Куплю монстеру зеленую в хорошем зеленом состоянии, буду поливать...', image: {main: '../src/express/public/img/item16.jpg', retina: '../src/express/public/img/item16@2x.jpg 2x'}, color: '16'}]
                 li.search-results__item
-                  +ticket-card({title: item.title, categories: item.categories, label: item.label, price: item.price, description: item.description, imagesrc: item.imagesrc, color: item.color})
+                  +ticket-card({title: item.title, categories: item.categories, label: item.label, price: item.price, description: item.description, image: item.image, color: item.color})
         else
           p Не найдено
             br
@@ -26,7 +26,7 @@ include ../shared/layout
           p.tickets-list__title Самое свежее
           a.tickets-list__link(href='#') Еще 25
         ul
-          each item in [{title: 'Монстера', categories: ['Дом'], label: 'Куплю', price: 1000, description: 'Куплю монстеру зеленую в хорошем зеленом состоянии, буду поливать...', imageSrc: {main: '../src/express/public/img/item01.jpg', retina: '../src/express/public/img/item01@2x.jpg 2x'}, color: '01'}, {title: 'Мое старое кресло', categories: ['Дом'], label: 'Продам', price: 4000, description: 'Продам свое старое кресло, чтобы сидеть и читать книги зимними...', imageSrc: {main: '../src/express/public/img/item02.jpg', retina: '../src/express/public/img/item02@2x.jpg 2x'}, color: '02'}]
+          each item in [{title: 'Монстера', categories: ['Дом'], label: 'Куплю', price: 1000, description: 'Куплю монстеру зеленую в хорошем зеленом состоянии, буду поливать...', image: {main: '../src/express/public/img/item01.jpg', retina: '../src/express/public/img/item01@2x.jpg 2x'}, color: '01'}, {title: 'Мое старое кресло', categories: ['Дом'], label: 'Продам', price: 4000, description: 'Продам свое старое кресло, чтобы сидеть и читать книги зимними...', image: {main: '../src/express/public/img/item02.jpg', retina: '../src/express/public/img/item02@2x.jpg 2x'}, color: '02'}]
             li.tickets-list__item
-              +ticket-card({title: item.title, categories: item.categories, label: item.label, price: item.price, description: item.description, imagesrc: item.imagesrc, color: item.color})
+              +ticket-card({title: item.title, categories: item.categories, label: item.label, price: item.price, description: item.description, image: item.image, color: item.color})
 include ../shared/footer
