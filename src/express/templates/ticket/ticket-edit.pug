@@ -14,7 +14,7 @@ include ../shared/layout
           form.ticket-form__form.form(action='#' method='post' enctype='multipart/form-data' autocomplete='off')
             .ticket-form__avatar-container.js-preview-container.uploaded
               .ticket-form__avatar.js-preview
-                img(src='../src/express/public/img/item02.jpg' srcset='../src/express/public/img/item02@2x.jpg 2x' alt='')
+                img(src='public/img/item02.jpg' srcset='public/img/item02@2x.jpg 2x' alt='')
               .ticket-form__field-avatar
                 +input-file({name: 'avatar', id: 'avatar', classname: 'ticket-form__text-upload', otherclassname: 'ticket-form__text-another'})
             .ticket-form__content
