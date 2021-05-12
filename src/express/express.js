@@ -27,10 +27,10 @@ app.use(`/offers`, offersRoutes);
 app.use(`/my`, myRoutes);
 app.use(`/`, mainRoutes);
 app.use((err, req, res) => {
-  res.status(500).render('errors/500');
+  res.status(500).render(`errors/500`);
 });
 app.use((err, req, res) => {
-  res.status(404).render('errors/404');
+  res.status(404).render(`errors/404`);
 });
 
 app.listen(DEFAULT_PORT);
