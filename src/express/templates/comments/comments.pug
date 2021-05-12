@@ -1,0 +1,16 @@
+include ../shared/header
+
+include ../shared/layout
+  +header()
+  main.page-content
+    .comments__block
+      .comments__header
+        a.announce-card(href='#')
+          h2.announce-card__title Ленд Ровер
+          span.announce-card__info
+            span.announce-card__price ₽ 900 000
+            span.announce-card__type ПРОДАМ
+    .ticket__comments-list
+      ul.comment-list
+        each comment in [{image: {main: '/img/avatar02.jpg', retina: '/img/avatar02@2x.jpg 2x', alt: 'Аватар пользователя'}, author: 'Александр Бурый', content: 'А что с прогоном автомобиля? Также вижу на фото зимнюю резину. А летняя идет ли впридачу?'}, {image: {main: '/img/avatar02.jpg', retina: '/img/avatar02@2x.jpg 2x', alt: 'Аватар пользователя'}, author: 'Александр Бурый', content: 'А что с прогоном автомобиля? Также вижу на фото зимнюю резину. А летняя идет ли впридачу?'}]
+          +comment-card({image: comment.image, author: comment.author, content: comment.content})

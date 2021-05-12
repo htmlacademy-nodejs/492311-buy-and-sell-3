@@ -1,0 +1,9 @@
+mixin comment-card(props)
+  .comment-card
+    .comment-card__header
+      a.comment-card__avatar.avatar(href='#')
+        img(src=props.image.main srcset=props.image.retina alt=props.image.alt)
+      p.comment-card__author=props.author
+      .comment-card__content
+        p=props.content
+      button.comment-card__delete.js-delete(type="button") Удалить

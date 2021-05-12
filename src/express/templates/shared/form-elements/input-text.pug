@@ -1,0 +1,6 @@
+mixin input-text(props)
+  input.js-field(type=props.type class=props.classname id=props.id name=props.name value=props.value placeholder=props.placeholder required=props.required aria-label=props.arialabel, min=props.min, max=props.max)
+  if props.label
+    label(for=id)=props.label
+  if props.required
+    span Обязательное поле

@@ -114,7 +114,11 @@ module.exports = {
     const sentences = await readContent(FILE_SENTENCES_PATH);
     const content = JSON.stringify(generateOffers(countOffer, titles, categories, sentences));
     fs.writeFile(FILE_NAME, content)
-      .then(() => {console.info(chalk[MessageColor.success](`Operation success. File created.`));})
-      .catch(() => { return console.error(chalk[MessageColor.error](`Can't write data to file...`))});
+      .then(() => {
+        console.info(chalk[MessageColor.success](`Operation success. File created.`));
+      })
+      .catch(() => {
+        return console.error(chalk[MessageColor.error](`Can't write data to file...`));
+      });
   }
 };
