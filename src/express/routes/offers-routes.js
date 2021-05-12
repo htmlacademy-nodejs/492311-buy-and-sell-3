@@ -23,5 +23,4 @@ offersRouter.get(`/edit/:id`, (req, res) => {
   res.render(`ticket/ticket-edit`);
 });
 
-
 module.exports = offersRouter;
